@@ -6,11 +6,11 @@ suppressMessages(suppressWarnings(library(hms, warn.conflicts = F, quietly = T))
 suppressMessages(suppressWarnings(library(chron, warn.conflicts = F, quietly = T)))
 suppressMessages(suppressWarnings(library(zoo, warn.conflicts = F, quietly = T)))
 
-today <- substr(now(), 1, 10)
+today <- substr(now() - lubridate::hours(4), 1, 10)
 
 dat <- read.delim(paste0('~/timetracker/log/', today), 
                   header=F, col.names=c('time', 'window'),
-                  stringsAsFactors=F)
+                  stringsAsFactors=F, quote='')
 
 
 #Get rid of second bc we dont need that precision
@@ -29,12 +29,15 @@ dat$time <- as_hms(paste0(substr(dat$time, 1, 5), ":00"))
 
 workwords <- c("Slack", "@", "pdf", "Stack", "Overleaf", "Gmail", "Zoom", "Ask Ubuntu", 
                'Editorial Manager', 'LibreOffice', "Google Drive", "Google Slides",
-               'SpringerLnk', 'PNAS', 'PLOS', 'R ')
+               'SpringerLink', 'ScienceDirect', 'PNAS', 'PLOS', 'R ', 'Nature', 'mcooper',
+               'pgAdmin', 'AWS', 'S3', 'Vim', 'ubuntu', 'ssh', 'sql', 'zoom', 'Harvard',
+               'Python', 'Athena', 'Amazon')
 
 emailwords <- c("Gmail", "Outlook")
 
 slackwords <- c("The New York Times", "Spotify", "The Atlantic", "reddit", "Twitter", 
-                "Site Blocked", 'YouTube', 'craigslist', 'dataisbeautiful')
+                "Site Blocked", 'YouTube', 'craigslist', 'dataisbeautiful', 
+                "TheMotte", "AskHistorians", "Amazon.com", 'AskReddit')
 
 
 dat <- dat %>%

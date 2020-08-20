@@ -6,7 +6,7 @@
 #If idle for less than 30000 milliseconds, record the active window
 if [[ $(xprintidle) -lt 30000 ]]
   then
-    date=$(date +%Y-%m-%d)
+    date=$(date -d '- 4 hours' +%Y-%m-%d)
     time=$(date +%H:%M:%S)
     activewindow=$(xdotool getactivewindow getwindowname)
     touch /home/mattcoop/timetracker/log/$date
