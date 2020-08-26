@@ -31,14 +31,15 @@ workwords <- c("Slack", "@", "pdf", "Stack", "Overleaf", "Gmail", "Zoom", "Ask U
                'Editorial Manager', 'LibreOffice', "Google Drive", "Google Slides",
                'SpringerLink', 'ScienceDirect', 'PNAS', 'PLOS', 'R ', 'Nature', 'mcooper',
                'pgAdmin', 'AWS', 'S3', 'Vim', 'ubuntu', 'ssh', 'sql', 'zoom', 'Harvard',
-               'Python', 'Athena', 'Amazon', 'Google Trends', "DHS", "Lancet")
+               'Python', 'Athena', 'Amazon', 'Google Trends', "DHS", "Lancet", 
+               'Google Docs', 'Google Search')
 
 emailwords <- c("Gmail", "Outlook")
 
 slackwords <- c("The New York Times", "Spotify", "The Atlantic", "reddit", "Twitter", 
                 "Site Blocked", 'YouTube', 'craigslist', 'dataisbeautiful', 
                 "TheMotte", "AskHistorians", "Amazon.com", 'AskReddit', 'Car Rental',
-                'Enterprise')
+                'Enterprise', 'Google Maps', 'Wikipedia')
 
 
 dat <- dat %>%
