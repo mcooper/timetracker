@@ -27,19 +27,19 @@ dat <- merge(dat,
 
 dat$time <- as_hms(paste0(substr(dat$time, 1, 5), ":00"))
 
-workwords <- c("Slack", "@", "pdf", "Stack", "Overleaf", "Gmail", "Zoom", "Ask Ubuntu", 
+workwords <- c("Slack", "@", "pdf", "Stack", "Overleaf", "Zoom", "Ask Ubuntu", 
                'Editorial Manager', 'LibreOffice', "Google Drive", "Google Slides",
                'SpringerLink', 'ScienceDirect', 'PNAS', 'PLOS', 'R ', 'Nature', 'mcooper',
                'pgAdmin', 'AWS', 'S3', 'Vim', 'ubuntu', 'ssh', 'sql', 'zoom', 'Harvard',
                'Python', 'Athena', 'Amazon', 'Google Trends', "DHS", "Lancet", 
-               'Google Docs', 'Google Search')
+               'Google Docs', 'Google Search', 'GLIDE', 'PostgreSQL', 'Meet - ')
 
-emailwords <- c("Gmail", "Outlook")
+emailwords <- c("Gmail", "Outlook", "University of Maryland Mail")
 
 slackwords <- c("The New York Times", "Spotify", "The Atlantic", "reddit", "Twitter", 
                 "Site Blocked", 'YouTube', 'craigslist', 'dataisbeautiful', 
                 "TheMotte", "AskHistorians", "Amazon.com", 'AskReddit', 'Car Rental',
-                'Enterprise', 'Google Maps', 'Wikipedia')
+                'Enterprise', 'Google Maps', 'Wikipedia', 'ContraPoints')
 
 
 dat <- dat %>%
