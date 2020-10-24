@@ -32,7 +32,8 @@ workwords <- c("Slack", "@", "pdf", "Stack", "Overleaf", "Zoom", "Ask Ubuntu",
                'SpringerLink', 'ScienceDirect', 'PNAS', 'PLOS', 'R ', 'Nature', 'mcooper',
                'pgAdmin', 'AWS', 'S3', 'Vim', 'ubuntu', 'ssh', 'sql', 'zoom', 'Harvard',
                'Python', 'Athena', 'Amazon', 'Google Trends', "DHS", "Lancet", 
-               'Google Docs', 'Google Search', 'GLIDE', 'PostgreSQL', 'Meet - ', 'tmux')
+               'Google Docs', 'Google Search', 'GLIDE', 'PostgreSQL', 'Meet - ', 'tmux',
+               'nvim')
 
 emailwords <- c("Gmail", "Outlook", "University of Maryland Mail")
 
