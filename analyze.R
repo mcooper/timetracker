@@ -10,7 +10,8 @@ today <- substr(now() - lubridate::hours(4), 1, 10)
 
 dat <- read.delim(paste0('~/timetracker/log/', today), 
                   header=F, col.names=c('time', 'window'),
-                  stringsAsFactors=F, quote='')
+                  stringsAsFactors=F, quote='') %>%
+  filter(!is.na(time) & time != '')
 
 
 #Get rid of second bc we dont need that precision
