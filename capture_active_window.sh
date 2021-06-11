@@ -9,6 +9,6 @@ if [[ $(xprintidle) -lt 30000 ]]
     date=$(date -d '- 4 hours' +%Y-%m-%d)
     time=$(date +%H:%M:%S)
     activewindow=$(xdotool getactivewindow getwindowname)
-    touch /home/mattcoop/timetracker/log/$date
-    echo -e "$time\t$activewindow" >> /home/mattcoop/timetracker/log/$date
+    touch /home/mattcoop/gd/ttlog/$date
+    echo -e "$time\t$activewindow" >> /home/mattcoop/gd/ttlog/$date
 fi

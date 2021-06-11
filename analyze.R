@@ -6,6 +6,8 @@ suppressMessages(suppressWarnings(library(hms, warn.conflicts = F, quietly = T))
 suppressMessages(suppressWarnings(library(chron, warn.conflicts = F, quietly = T)))
 suppressMessages(suppressWarnings(library(zoo, warn.conflicts = F, quietly = T)))
 
+source('~/timetracker/codes.R')
+
 today <- substr(now() - lubridate::hours(4), 1, 10)
 
 dat <- read.delim(paste0('~/timetracker/log/', today), 
@@ -28,27 +30,11 @@ dat <- merge(dat,
 
 dat$time <- as_hms(paste0(substr(dat$time, 1, 5), ":00"))
 
-workwords <- c("Slack", "@", "pdf", "Stack", "Overleaf", "Zoom", "Ask Ubuntu", 
-               'Editorial Manager', 'LibreOffice', "Google Drive", "Google Slides",
-               'SpringerLink', 'ScienceDirect', 'PNAS', 'PLOS', 'R ', 'Nature', 'mcooper',
-               'pgAdmin', 'AWS', 'S3', 'Vim', 'ubuntu', 'ssh', 'sql', 'zoom', 'Harvard',
-               'Python', 'Athena', 'Amazon', 'Google Trends', "DHS", "Lancet", 
-               'Google Docs', 'Google Search', 'GLIDE', 'PostgreSQL', 'Meet - ', 'tmux',
-               'nvim', 'laptop - ', '.png')
-
-emailwords <- c("Gmail", "Outlook", "University of Maryland Mail")
-
-slackwords <- c("The New York Times", "Spotify", "The Atlantic", "reddit", "Twitter", 
-                "Site Blocked", 'YouTube', 'craigslist', 'dataisbeautiful', 
-                "TheMotte", "AskHistorians", "Amazon.com", 'AskReddit', 'Car Rental',
-                'Enterprise', 'Google Maps', 'Wikipedia', 'ContraPoints')
-
-
 dat <- dat %>%
   mutate(task = case_when(is.na(window) ~ "Idle/Break",
                           window == '' ~ "Idle/Break",
                           grepl(paste(workwords, collapse='|'), window) ~ "Work",
-                          grepl(paste(emailwords, collapse='|'), window) ~ "Email",
+                          grepl(paste(emailwords, collapse='|'), window) ~ "Email/Meetings",
                           grepl(paste(slackwords, collapse='|'), window) ~ "Slack",
                           TRUE ~ "Unknown"),
          task = na.locf(task, na.rm=F, maxgap=1))
@@ -74,7 +60,7 @@ ggplot(dat) +
         plot.title = element_text(hjust = 0.5)) + 
   labs(x=today,
        title=str) + 
-  scale_fill_manual(values=c('Email'='#377eb8',
+  scale_fill_manual(values=c('Email/Meetings'='#377eb8',
                              'Work'='#4daf4a',
                              'Slack'='#e41a1c',
                              'Idle/Break'='#dddddd',
