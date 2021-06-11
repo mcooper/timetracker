@@ -8,7 +8,7 @@ library(zoo)
 
 source('~/timetracker/codes.R')
 
-setwd('~/timetracker/log')
+setwd('~/gd/ttlog')
 
 readf <- function(f){
   read.delim(f, 

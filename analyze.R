@@ -10,7 +10,7 @@ source('~/timetracker/codes.R')
 
 today <- substr(now() - lubridate::hours(4), 1, 10)
 
-dat <- read.delim(paste0('~/timetracker/log/', today), 
+dat <- read.delim(paste0('~/gd/ttlog/', today), 
                   header=F, col.names=c('time', 'window'),
                   stringsAsFactors=F, quote='') %>%
   filter(!is.na(time) & time != '')
