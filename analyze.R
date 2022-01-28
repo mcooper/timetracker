@@ -3,7 +3,7 @@ suppressMessages(suppressWarnings(library(lubridate, warn.conflicts = F, quietly
 suppressMessages(suppressWarnings(library(tcltk, warn.conflicts = F, quietly = T)))
 suppressMessages(suppressWarnings(library(scales, warn.conflicts = F, quietly = T)))
 suppressMessages(suppressWarnings(library(hms, warn.conflicts = F, quietly = T)))
-suppressMessages(suppressWarnings(library(chron, warn.conflicts = F, quietly = T)))
+#suppressMessages(suppressWarnings(library(chron, warn.conflicts = F, quietly = T)))
 suppressMessages(suppressWarnings(library(zoo, warn.conflicts = F, quietly = T)))
 
 source('~/timetracker/codes.R')
