@@ -1,3 +1,5 @@
+args = commandArgs(trailingOnly=TRUE)
+
 suppressMessages(suppressWarnings(library(tidyverse, warn.conflicts = F, quietly = T)))
 suppressMessages(suppressWarnings(library(lubridate, warn.conflicts = F, quietly = T)))
 suppressMessages(suppressWarnings(library(tcltk, warn.conflicts = F, quietly = T)))
@@ -8,7 +10,7 @@ suppressMessages(suppressWarnings(library(zoo, warn.conflicts = F, quietly = T))
 
 source('~/timetracker/codes.R')
 
-today <- substr(now() - lubridate::hours(4), 1, 10)
+today <- ymd(args)
 
 dat <- read.delim(paste0('~/gd/ttlog/', today), 
                   header=F, col.names=c('time', 'window'),
